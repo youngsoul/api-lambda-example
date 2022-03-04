@@ -1,9 +1,14 @@
 from aws_cdk import (
-    # Duration,
     Stack,
-    # aws_sqs as sqs,
+    aws_apigatewayv2_alpha as api_gw,
+    aws_apigatewayv2_integrations_alpha as integrations,
+    CfnOutput,
+    aws_lambda_python_alpha as lambda_alpha_,
+    aws_lambda as _lambda
+
 )
 from constructs import Construct
+
 
 class ApiLambdaExampleStack(Stack):
 
@@ -11,9 +16,16 @@ class ApiLambdaExampleStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         # The code that defines your stack goes here
+        lb1 = lambda_alpha_.PythonFunction(self, "helloworld_function",
+                                           index="hello_world.py",
+                                           handler="lambda_handler",
+                                           entry="./lambda1",
+                                           runtime=_lambda.Runtime.PYTHON_3_9
+                                           )
 
-        # example resource
-        # queue = sqs.Queue(
-        #     self, "ApiLambdaExampleQueue",
-        #     visibility_timeout=Duration.seconds(300),
-        # )
+        # defines an API Gateway Http API resource backed by our "efs_lambda" function.
+        api = api_gw.HttpApi(self, 'Test API Lambda',
+                             default_integration=integrations.HttpLambdaIntegration(id="lb1-lambda-proxy",
+                                                                                    handler=lb1))
+
+        CfnOutput(self, 'HTTP API Url', value=api.url);

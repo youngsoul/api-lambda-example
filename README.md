@@ -1,5 +1,15 @@
+# CDK V2 Example creating an HttpApi to Lambda Function
 
-# Welcome to your CDK Python project!
+It does not get easier than this, but it is still helpful to start out easy.
+
+![TI](./media/title_image.png)
+
+
+This repo contains a short example of how to use the v2/alpha CDK to create a simple HttpApi gateway proxy to a Lambda function using the latest ( 3/4/2022 ) CDK contructs
+
+
+
+### Welcome to your CDK Python project!
 
 This is a blank project for Python development with CDK.
 
@@ -49,9 +59,13 @@ command.
 
 ## Useful commands
 
+cdk bootstrap --profile pryan
+- creates a cloudformation stack called:  'CDKToolkit'
+
  * `cdk ls`          list all stacks in the app
  * `cdk synth`       emits the synthesized CloudFormation template
  * `cdk deploy`      deploy this stack to your default AWS account/region
+ * `cdk destroy`     destroy this stack
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
 
