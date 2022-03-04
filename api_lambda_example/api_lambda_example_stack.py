@@ -17,9 +17,9 @@ class ApiLambdaExampleStack(Stack):
 
         # The code that defines your stack goes here
         lb1 = lambda_alpha_.PythonFunction(self, "helloworld_function",
+                                           entry="./lambda1",
                                            index="hello_world.py",
                                            handler="lambda_handler",
-                                           entry="./lambda1",
                                            runtime=_lambda.Runtime.PYTHON_3_9
                                            )
 

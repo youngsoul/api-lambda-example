@@ -7,6 +7,14 @@ It does not get easier than this, but it is still helpful to start out easy.
 
 This repo contains a short example of how to use the v2/alpha CDK to create a simple HttpApi gateway proxy to a Lambda function using the latest ( 3/4/2022 ) CDK contructs
 
+## AWS CDK V2 
+
+https://aws.amazon.com/blogs/developer/experimental-construct-libraries-are-now-available-in-aws-cdk-v2/
+
+### CDKv2 Python Reference
+
+https://docs.aws.amazon.com/cdk/api/v2/python/index.html
+
 
 
 ### Welcome to your CDK Python project!
